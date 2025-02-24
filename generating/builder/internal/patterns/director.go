@@ -63,7 +63,7 @@ func getDataFrontPage() models.FrontPageData {
 	data.Student.Group = readString()
 	fmt.Println("Фамилия Преподователя: ")
 	data.Teacher.Surname = readString()
-	fmt.Println("Инициалы Студента: ")
+	fmt.Println("Инициалы Преподавателя: ")
 	data.Teacher.Name = readString()
 	fmt.Println("Номер лабораторной работы: ")
 	numberWork, err := strconv.Atoi(readString())
