@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Отчет по Программированию</title>
+    <style>
+        .text-center-frontpage {
+            text-align: center;
+        }
+        .main {
+            width: 800px;
+            margin-inline: auto;
+        }
+        p {
+            text-indent: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="front-page">
+    <div style="display: flex; flex-direction: row; gap: 10px; width: 600px; margin-inline: auto">
+        <img alt="lstu" src="images/image.svg" style="width: 50px;"/>
+        <div class="text-center-frontpage"><b>МИНИСТЕРСТВО НАУКИ И ВЫСШЕГО ОБРАЗОВАНИЯ РФ</b></div><br/><br/>
+    </div>
+  
+    <div class="text-center-frontpage"><b>ФЕДЕРАЛЬНОЕ ГОСУДАРСТВЕННОЕ БЮДЖЕТНОЕ ОБРАЗОВАТЕЛЬНОЕ</b></div>
+    <div class="text-center-frontpage"><b>УЧРЕЖДЕНИЕ ВЫСШЕГО ОБРАЗОВАНИЯ «ЛИПЕЦКИЙ</b></div>
+    <div class="text-center-frontpage"><b>ГОСУДАРСТВЕННЫЙ ТЕХНИЧЕСКИЙ УНИВЕРСИТЕТ»</b></div><br/><br/>
+
+    <div class="text-center-frontpage">Институт компьютерных наук</div>
+    <div class="text-center-frontpage">Кафедра автоматизированных систем управления</div><br/><br/><br/><br/><br/>
+
+    <div class="text-center-frontpage">ЛАБОРАТОРНАЯ РАБОТА №1</div>
+    <div class="text-center-frontpage">по дисциплине "Программирование"</div><br/><br/><br/><br/><br/><br/>
+
+    <div style="display: flex; flex-direction: row; gap: 30px; width: 700px; margin-inline: auto; justify-content: space-around">
+      <div>Студент</div>
+      <div style="width: 150px">ПИ-21-1</div>
+      <div style="width: 100px; border-bottom: 1px solid black;"></div>
+      <div>Красиков И.А.</div>
+    </div><br/><br/>
+    <div style="display: flex; flex-direction: row; gap: 30px; width: 700px; margin-inline: auto; justify-content: space-around">
+        <div>Руководитель</div>
+        <div style="width: 110px"></div>
+        <div style="width: 100px; border-bottom: 1px solid black;"></div>
+        <div>Алексеев В.А.</div>
+    </div><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+
+    <div class="text-center-frontpage">г. Липецк 2025</div>
+</div><br/><br/><br/><br/><br/><div class="common_page">
+    <div style="font-size: 18px"><b>Цель работы</b></div>
+    <p>Ознакомиться с языком программирования Golang</p>
+</div>
+<br/><br/><br/><br/><br/><div class="common_page">
+    <div style="font-size: 18px"><b>Задание кафедры</b></div>
+    <p>Написать программу</p>
+</div>
+<br/><br/><br/><br/><br/><div class="common_page">
+    <div style="font-size: 18px"><b>Теоретические сведения</b></div>
+    <p>Go это круто</p>
+</div>
+<br/><br/><br/><br/><br/><div class="result_work">
+  <div style="font-size: 18px"><b>Код программы</b></div>
+  <div><pre>package main
+
+import (
+	"builder/internal/patterns"
+	"errors"
+	"fmt"
+	"os"
+)
+
+func main() {
+	var typeReport int
+	fmt.Println("Программа по построению отчета")
+	fmt.Print("1 - Базы данных\n2 - Компьютерные сети\n3 - Программирование\n> ")
+	for _, err := fmt.Scan(&typeReport); err != nil; _, err = fmt.Scan(&typeReport) {
+		fmt.Println(err)
+		fmt.Print("1 - Базы данных\n2 - Компьютерные сети\n3 - Программирование\n> ")
+	}
+	var builder patterns.ReportBuilder
+	switch typeReport {
+	case 1:
+		builder = patterns.NewDBBuilder()
+	case 2:
+		builder = patterns.NewNetBuilder()
+	case 3:
+		builder = patterns.NewProgBuilder()
+	default:
+		fmt.Println(errors.New("не правильный вариант"))
+		return
+	}
+	director := patterns.NewDirector(builder)
+	report := director.CreateFromTerminal()
+	err := os.WriteFile("result/index.html", []byte(report), 0777)
+	if err != nil {
+		fmt.Println(err)
+	}
+}
+</pre>
+</div>
+</div><br/><br/><br/><br/><br/><div class="common_page">
+    <div style="font-size: 18px"><b>Анализ работы</b></div>
+    <p>Анализ программы</p>
+</div>
+<br/><br/><br/><br/><br/><div class="common_page">
+    <div style="font-size: 18px"><b>Вывод</b></div>
+    <p>Вывод по написанной программе</p>
+</div>
+<br/><br/><br/><br/><br/>
+    </div>
+</body>
+</html>

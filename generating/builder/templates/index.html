@@ -7,9 +7,18 @@
         .text-center-frontpage {
             text-align: center;
         }
+        .main {
+            width: 800px;
+            margin-inline: auto;
+        }
+        p {
+            text-indent: 30px;
+        }
     </style>
 </head>
 <body>
-    {{ .content }}
+    <div class="main">
+        {{ .content }}
+    </div>
 </body>
 </html>

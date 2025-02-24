@@ -9,7 +9,6 @@ type Student struct {
 type Teacher struct {
 	Name    string
 	Surname string
-	Place   string
 }
 
 type FrontPageData struct {
