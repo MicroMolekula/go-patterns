@@ -7,10 +7,13 @@ import (
 )
 
 func main() {
-	if len(os.Args) < 2 {
-		log.Fatal("не достаточно аргументов")
+	var rootPath string
+	switch len(os.Args) {
+	case 2:
+		rootPath = os.Args[1]
+	default:
+		rootPath = "."
 	}
-	rootPath := os.Args[1]
 	root, err := composite.BuildTree(rootPath)
 	if err != nil {
 		log.Fatal("Ошибка чтения директории: ", err)
